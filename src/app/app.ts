@@ -25,7 +25,7 @@ export class App {
         this.loading.set(false);
       },
       error: () => {
-        this.error.set('Ville non trouvée');
+        this.error.set('Ville non trouvée..');
         this.loading.set(false);
       }
     });

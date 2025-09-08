@@ -7,7 +7,7 @@
               {{ weather.main.temp}} °C
               <img [src]="'http://openweathermap.org/img/wn/' + weather.weather[0].icon + '.png'" alt="icon météo">
             </h2>
-            <p>Ressenti : {{ weather.main.feels_like}} °C  -  {{ weather.weather[0].description }}</p>
+            <p>Ressenti : {{ weather.main.feels_like}} °C  |  {{ weather.weather[0].description }}</p>
             <p>Min-Max : {{ weather.main.temp_min }} °C  -  {{ weather.main.temp_max }} °C</p>
             <p>Humidité : {{ weather.main.humidity}} %</p>
           </div>

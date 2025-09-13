@@ -1,4 +1,4 @@
-body{
+.monApp {
   width: max-content;
   margin: 50px;
   padding: 20px;
@@ -7,6 +7,16 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   text-align: center;
   box-shadow: rgb(109, 184, 255) 3px 3px 5px 3px;
+}
+
+@media (max-width: 600px) {
+  .monApp {
+    width: 90%;
+    height: 80%;
+    margin: 20px;
+    padding: 10px;
+  }
 }

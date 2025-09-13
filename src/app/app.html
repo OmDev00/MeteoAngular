@@ -1,0 +1,110 @@
+<div class="page">
+  <!-- ===== Header ===== -->
+  <header class="site-header">
+    <div class="shell header-inner">
+      <div class="brand">SEN <span>MÉTÉO</span></div>
+
+      <nav class="socials" aria-label="Réseaux sociaux">
+        <a href="#" title="Facebook" aria-label="Facebook">fb</a>
+        <a href="#" title="X (Twitter)" aria-label="X">x</a>
+        <a href="#" title="Instagram" aria-label="Instagram">ig</a>
+        <a href="#" title="LinkedIn" aria-label="LinkedIn">in</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== Contenu principal ===== -->
+  <main class="shell">
+    <section class="panel">
+      <!-- Barre de recherche -->
+      <form (ngSubmit)="search()" class="search">
+        <input
+          type="text"
+          name="city"
+          [(ngModel)]="city"
+          required
+          placeholder="Entrez une ville"
+          autocomplete="off" />
+        <button type="submit">Rechercher</button>
+      </form>
+
+      <!-- État “chargement / erreur” -->
+      <p *ngIf="loading" class="state muted">Chargement…</p>
+      <p *ngIf="error" class="state error">{{ error }}</p>
+
+      <!-- Météo actuelle -->
+      <section *ngIf="weather" class="current">
+        <h2 class="city">
+          {{ weather.name }}, {{ weather.sys?.country }}
+        </h2>
+
+        <div class="current-grid">
+          <div class="temp-block">
+            <div class="temp">
+              {{ weather.main?.temp | number:'1.0-0' }}°C
+            </div>
+            <div class="desc">
+              {{ weather.weather?.[0]?.description }}
+            </div>
+          </div>
+
+          <ul class="details">
+            <li><span>Ressenti :</span> {{ weather.main?.feels_like | number:'1.0-0' }}°C</li>
+            <li><span>Min–Max :</span> {{ weather.main?.temp_min | number:'1.0-0' }}° – {{ weather.main?.temp_max | number:'1.0-0' }}°C</li>
+            <li><span>Humidité :</span> {{ weather.main?.humidity }} %</li>
+            <li><span>Vent :</span> {{ weather.wind?.speed | number:'1.0-1' }} m/s</li>
+            <li><span>Direction :</span> {{ weather.wind?.deg }}°</li>
+            <li><span>Pression :</span> {{ weather.main?.pressure }} hPa</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Prévision 5 jours -->
+      <section *ngIf="forecast.length" class="forecast">
+        <h3>Prévisions sur 5 jours – {{ city | uppercase }}</h3>
+
+        <div class="days">
+          <article class="day" *ngFor="let d of forecast">
+            <div class="date">{{ d.date | date:'EEE dd MMM' }}</div>
+            <div class="minmax">
+              {{ d.tmin | number:'1.0-0' }}° / {{ d.tmax | number:'1.0-0' }}°C
+            </div>
+            <div class="rain">
+              Pluie : {{ d.precip | number:'1.0-1' }} mm
+            </div>
+          </article>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <!-- ===== Footer collé en bas ===== -->
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div class="foot-brand">SEN MÉTÉO</div>
+
+      <div>
+        <div class="foot-title">Contact</div>
+        <div>contact@senmeteo.sn</div>
+        <div>+221 77 000 00 00</div>
+      </div>
+
+      <div>
+        <div class="foot-title">Adresse</div>
+        <div>Plateau, Dakar</div>
+        <div>Sénégal</div>
+      </div>
+
+      <div class="foot-socials" aria-label="Réseaux sociaux">
+        <a href="#" title="Facebook">fb</a>
+        <a href="#" title="X (Twitter)">x</a>
+        <a href="#" title="Instagram">ig</a>
+        <a href="#" title="LinkedIn">in</a>
+      </div>
+    </div>
+
+    <div class="copyright">
+      © 2025 OMAR&CISKO. Tous droits réservés.
+    </div>
+  </footer>
+</div>

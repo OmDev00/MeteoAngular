@@ -1,0 +1,25 @@
+@if (weather) {
+      <div class="container border">
+        <div class="row" id="card">
+          <h1>{{ weather.name }}, {{ weather.sys.country }}</h1>
+          <div class="col-6">
+            <h2>
+              {{ weather.main.temp}} °C
+            </h2>
+            <p>Ressenti : {{ weather.main.feels_like}} °C</p>
+            <p>Min-Max : {{ weather.main.temp_min }} °C  -  {{ weather.main.temp_max }} °C</p>
+            <p>Humidité : {{ weather.main.humidity}} %</p>
+          </div>
+          <div class="col-6">
+            <h3>
+              <img [src]="'http://openweathermap.org/img/wn/' + weather.weather[0].icon + '.png'" alt="icon météo">
+              {{ weather.weather[0].description }}</h3>
+            <p>Vitesse du vent : {{ weather.wind.speed }} m/s</p>
+            <p>Direction du vent : {{ weather.wind.deg }}°</p>
+            <p>Pression : {{ weather.main.pressure }} hPa</p>
+
+
+          </div>
+        </div>
+      </div>
+    }

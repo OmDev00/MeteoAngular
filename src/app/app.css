@@ -24,6 +24,7 @@ main{ flex: 1; }
   backdrop-filter: blur(6px);
   border-bottom: 1px solid rgba(255,255,255,.15);
 }
+
 .header-inner{
   display: flex;
   align-items: center;
@@ -147,14 +148,15 @@ main{ flex: 1; }
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
   border-top: 1px solid rgba(255,255,255,.15);
+  text-align: center;
 }
 .footer-grid{
   display:grid;
-  grid-template-columns: 1.2fr 1fr 1fr .8fr;
+  grid-template-columns: .8fr 1fr 1fr 1.2fr;
   gap: 14px; padding-top: 14px; padding-bottom: 10px;
 }
 .foot-brand{ font-weight:800; letter-spacing:.5px; }
-.foot-title{ font-weight:700; margin-bottom:6px; }
+.foot-title{ font-weight:700; margin-bottom:6px; text-decoration: underline;}
 .foot-socials a{
   display:inline-block; width:28px;height:28px;line-height:28px;
   text-align:center;border-radius:50%;
